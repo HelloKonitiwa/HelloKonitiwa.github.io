@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diary</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+</head>
+<body>
+
+<div class="warning">
+  <p>注）このページはPCで見ることを推奨します。</p>
+</div>
+
+<div class="calendar-wrapper">
+  <div class="calendar-container">
+    <div id="calendar" class="calendar"></div>
+    <canvas id="moodGraph"></canvas>
+  </div>
+</div>
+
+
+  <div class="switch">
+    <a href="index.html" class="active">home</a>
+    <a href="tags.html">tags</a>
+  </div>
+
+<div class="diary">
+<!--矢印ボタン，日付-->
+  <div class="nav">
+    <button id="prevBtn">←</button>
+    <div id="date" class="date"></div>
+    <button id="nextBtn">→</button>
+  </div>
+
+<!--ヘッダー-->
+<div id="entry-header" class="entry-header"></div>
+
+<!--タイトル-->
+  <h1 id="title" class="entry-title"></h1>
+<!--本文-->
+  <div id="content"></div>
+<!--タグ，シリーズ-->
+ <div id="meta" class="entry-meta"></div>
+
+</div>
+
+<div class="back-to-list">
+  <a href="tags.html"> 記事一覧に戻る</a>
+</div>
+
+
+  <script src="script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+      hljs.highlightAll();
+      });
+  </script>
+  <script>
+    if (window.innerWidth <= 768) {
+     const params = new URLSearchParams(window.location.search);
+      const hasDate = params.get("date");
+
+      // dateパラメータが無いときだけ一覧へ飛ばす
+      if (!hasDate) {
+        window.location.href = "tags.html";
+      }
+    }
+  </script>
+
+</body>
+</html>

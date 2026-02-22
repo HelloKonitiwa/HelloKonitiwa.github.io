@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diary - Tags</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+</head>
+<body>
+
+<div class="warning">
+  <p>注）このページはPCで見ることを推奨します。</p>
+</div>
+
+<div class="calendar-wrapper">
+  <div class="calendar-container">
+    <div id="calendar" class="calendar"></div>
+    <canvas id="moodGraph"></canvas>
+  </div>
+</div>
+
+<div class="switch">
+  <a href="index.html">home</a>
+  <a href="tags.html" class="active">tag</a>
+</div>
+
+<!-- タグ一覧 -->
+<div class="tag-list-container">
+  <div id="tagList" class="tag-list"></div>
+</div>
+
+<!-- 記事カード一覧 -->
+<div class="card-container">
+  <div id="cardGrid" class="card-grid"></div>
+</div>
+
+<!--もっと見るボタン-->
+<div class="load-more-wrapper">
+  <button id="loadMoreBtn" class="load-more-btn">もっと見る</button>
+</div>
+
+<script src="script.js"></script>
+<script src="tags.js"></script>
+</body>
+</html>
