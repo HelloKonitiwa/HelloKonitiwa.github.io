@@ -76,7 +76,7 @@ body {
 
 .diary {
   margin: 30px auto; /*home/tagボタンとの間隔*/
-  max-width: 680px;
+  max-width: 650px;
   padding: 0 20px;
   text-align: left;
 }
@@ -130,11 +130,13 @@ body {
   display: block;
 }
 
-/*本文*/
+/*--------------------------
+           本文
+---------------------------*/
 #content {
-  font-size: 16px;
-  line-height: 1.95;
-  letter-spacing: 0.02em;
+  font-size: 17px;
+  line-height: 2.33;
+  letter-spacing: 0.015em;
   word-break: break-word;
 }
 
@@ -144,6 +146,23 @@ body {
   margin: 40px 0 20px;
   line-height: 1.4;
 }
+/*
+変更するなら
+#content h1 {
+  font-size: 26px;
+  margin: 48px 0 22px;
+}
+
+#content h2 {
+  font size: 22px;
+  margin 36 0 16px;
+}
+
+#content h3 {
+  font size::18 px;
+  margin 36px 0 16px;
+}
+*/
 
 #content h2 {
   font-size: 22px;
@@ -160,6 +179,7 @@ body {
 
 #content p {
   margin: 0 0 22px 0;
+  margin-bottom: 26px;
 }
 
 #content strong {
@@ -535,3 +555,4 @@ pre code {
     display: block;
   }
 }
+
