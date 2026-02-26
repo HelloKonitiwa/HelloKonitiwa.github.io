@@ -168,7 +168,7 @@ function renderPrivateLock(entry) {
 
   contentEl.innerHTML = `
     <div class="private-lock">
-      <p>この記事は限定公開です。<br>パスワードが欲しい方はohnoblog0908あっとgmail.comまで連絡をお願いします。</p>
+      <p>この記事は限定公開です。</p>
       <input type="password" id="privatePw" placeholder="パスワードを入力">
       <button id="unlockBtn">送信</button>
       <p id="privateError" style="color:red;"></p>
