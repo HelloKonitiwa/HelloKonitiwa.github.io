@@ -14,36 +14,5 @@
       "createdAt": "2026-02-24T06:29:02.763Z",
       "updatedAt": "2026-02-24T06:29:02.763Z"
     }
-  },
-    {
-    "type": "diary",
-    "private": false,
-    "date": "2026-02-25",
-    "tags": [
-      "test"
-    ],
-    "series": null,
-    "title": "test",
-    "header": "",
-    "content": "This is a test for the private-article. This article is not private.",
-    "meta": {
-      "createdAt": "2026-02-24T06:29:02.763Z",
-      "updatedAt": "2026-02-24T06:29:02.763Z"
-    }
-  },
-    {
-    "type": "diary",
-    "date": "2026-02-26",
-    "tags": [
-      "test"
-    ],
-    "series": null,
-    "title": "test",
-    "header": "",
-    "content": "This is a test for the private-article. This article is not private, has no tags.",
-    "meta": {
-      "createdAt": "2026-02-24T06:29:02.763Z",
-      "updatedAt": "2026-02-24T06:29:02.763Z"
-    }
   }
 ]
