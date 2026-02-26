@@ -528,6 +528,21 @@ pre code {
   font-size: 13px;
 }
 
+/*=========================
+footer
+=========================*/
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #999;
+  position: fixed;
+  /*以下3行footerを下部に固定*/
+  bottom: 0;
+  width: 100%;
+}
+
 /* =========================
    Responsive - Mobile
 ========================= */
