@@ -83,9 +83,6 @@ async function loadData() {
   drawCalendar();
 }
 
-if (calendar) {
-  loadData();
-}
 
 // -----------------------------
 // カレンダー描画
@@ -156,6 +153,46 @@ if (calendar) {
   loadData();
 }
 
+/*--------------------
+パスワード認証
+---------------------*/
+async function sha256(text) {
+  const msgBuffer = new TextEncoder().encode(text);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+function renderPrivateLock(entry) {
+  const contentEl = document.getElementById("content");
+
+  contentEl.innerHTML = `
+    <div class="private-lock">
+      <p>この記事は限定公開です。<br>パスワードが欲しい方はohnoblog0908あっとgmail.comまで連絡をお願いします。</p>
+      <input type="password" id="privatePw" placeholder="パスワードを入力">
+      <button id="unlockBtn">送信</button>
+      <p id="privateError" style="color:red;"></p>
+    </div>
+  `;
+
+  document.getElementById("unlockBtn").addEventListener("click", async () => {
+    const input = document.getElementById("privatePw").value;
+
+    // ここにハッシュ値を入れる
+    const correctHash = "f8638b979b2f4f793ddb6dbd197e0ee25a7a6ea32b0ae22f5e3c5d119d839e75";
+
+    const inputHash = await sha256(input);
+
+    if (inputHash === correctHash) {
+      contentEl.innerHTML = entry.content;
+      if(window.hljs) hljs.highlightAll();
+    } else {
+      document.getElementById("privateError").textContent =
+        "パスワードが違います。";
+    }
+  });
+}
+
 
 // -----------------------------
 // 日記表示
@@ -173,7 +210,6 @@ function renderEntry() {
 // ヘッダー画像
 // ----------------------------
 const headerContainer = document.getElementById("entry-header");
-
 // 中身をリセット
 headerContainer.innerHTML = "";
 
@@ -217,9 +253,13 @@ if (entry.header) {
   titleEl.appendChild(titleText);
   titleEl.appendChild(label);
 
-  //本文
-  document.getElementById("content").innerHTML =
-    entry.content;
+  //本文 + パスワード認証
+  if (entry.private === true) {
+    renderPrivateLock(entry);
+  } else {
+    document.getElementById("content").innerHTML = entry.content;
+    hljs.highlightAll();
+  }
 
   // メタ情報（タグ・シリーズ）
   const meta = document.getElementById("meta");
